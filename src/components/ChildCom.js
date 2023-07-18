@@ -1,24 +1,29 @@
-import React from "react";
+import React from "react"
+import { useState } from "react"
 
-const ChildCom = (props) => {
+const App = () => {
+  const [showModal, setshowModal] = useState(false)
   return (
-    <div>
-      <h1>Child Component</h1>
-      <button
-        onClick={() => {
-          props.state.setShowModal(props.state.showModal ? false : true);
-        }}
-      >
-        Show Button
-      </button>
-      {props.state.showModal ? (
-        <div>
-          <h3>Modal Content</h3>
-          <p>This is the modal content</p>
-        </div>
-      ) : null}
-    </div>
-  );
-};
+    <div className="parent">
+      {/* Do not remove the main div */}
+      <h1>Parent Component</h1>
 
-export default ChildCom;
+      <div className="child">
+      <h1>Child Component</h1>
+
+
+        <button onClick={() => setshowModal(!showModal)}>Show Modal</button>
+        {
+          showModal ? (
+            <div >
+              <h3>Modal Content</h3>
+              <p>This is the modal content.</p>
+            </div>
+          ) : ("")
+        }
+      </div>
+    </div>
+  )
+}
+
+export default App
