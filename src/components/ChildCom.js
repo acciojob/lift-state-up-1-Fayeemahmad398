@@ -6,7 +6,7 @@ const ChildCom = (props) => {
       <h1>Child Component</h1>
       <button
         onClick={() => {
-          props.state.setShowModal(true);
+          props.state.setShowModal(props.state.showModal ? false : true);
         }}
       >
         Show Button
